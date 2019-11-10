@@ -9,14 +9,22 @@ gem 'rails', '~> 6.0.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+# Use dotenv to hold your database secrets
+gem 'dotenv-rails', '~> 2.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+gem 'sassc-rails', '~> 2.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+## Styling ##
+# Use bootstrap gem for styling
+gem 'bootstrap', '~> 4.3'
+# Supports bootstrap
+gem 'sprockets-rails', '~> 3.2'
+# Supports bootstrap
+gem 'jquery-rails', '~> 4.3'
+# Use font awesome for icons
+gem 'font-awesome-rails', '~> 4.6'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -25,8 +33,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  # Security engine for Rails apps
+  gem 'devise'
+  # Use RSpec for back-end testing
+  gem 'rspec-rails', '~> 3.8'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry', '~> 0.12.2'
 end
 
 group :development do
@@ -38,35 +51,19 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-group :development, :test do
-  gem 'pg', '>= 0.18', '< 2.0'
-  gem 'puma', '~> 4.1'
-  gem 'dotenv-rails', '~> 2.7'
-  gem 'sassc-rails', '~> 2.1'
-  gem 'webpacker', '~> 4.0'
-  gem 'bootstrap', '~> 4.3'
-  gem 'sprockets-rails', '~> 3.2'
-  gem 'jquery-rails', '~> 4.3'
-  gem 'font-awesome-rails', '~> 4.6'
-  gem 'rspec-rails', '~> 3.8'
-  gem 'pry', '~> 0.12.2'
-  gem 'bootsnap', '>= 1.4.2', require: false
-  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-end
-
-group :development do
-end
-
 group :test do
   gem 'capybara', '>= 2.15'
+  # Adds support for Capybara system testing and selenium driver
   gem 'selenium-webdriver'
+  # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # Creates test objects
   gem 'factory_bot_rails', '~> 5.0'
+  # Creates dummy data for test instances
   gem 'faker', '~> 1.9'
+  # Provides one-line test code
   gem 'shoulda-matchers', '~> 4.1'
 end
 
-gem 'devise', groups: [:development, :test]
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
