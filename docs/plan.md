@@ -4,47 +4,47 @@
 
 ### `Owner`: Relationships
 
-- has_many :ownership_histories
-- has_many :cars, through: :ownership_histories
+[x] has_many :ownership_histories
+[x] has_many :cars, through: :ownership_histories
 
 ### `Owner`: Attributes
 
-- name:string
-- email:string
-- telephone:string
+[x] name:string
+[x] email:string
+[x] telephone:string
 
 ### `Car`: Relationships
 
-- has_many :ownership_histories
-- has_many :owners, through: :ownership_histories
+[x] has_many :ownership_histories
+[x] has_many :owners, through: :ownership_histories
 
 ### `Car`: Attributes
 
-- make:string
-- model:string
-- color:string
-- mileage:integer
-- owner --> Access this through the join table
-- is_for_sale:boolean
+[x] make:string
+[x] model:string
+[x] color:string
+[x] mileage:integer
+[ ] owner --> Access this through the join table
+[x] is_for_sale:boolean
 
 ### `OwnershipHistory`: Relationships
 
-- belongs_to :owners
-- belongs_to :cars
+[x] belongs_to :owner
+[x] belongs_to :car
+[x] belongs_to :admin
 
 `OwnershipHistory` will act as a join table between `Owners` and `Cars`.
 
 ### `Admin`: Relationships
 
-- has_many :owners
-- has_many :cars
+[x] has_many :owners
+[x] has_many :cars, through: :owners
+[x] has_many :ownership_histories, through: :owners
 
 ### `Admin`: Attributes
 
-- email:string
-- password:string
-
-Implement `Admin` model via devise gem.
+[x] email:string
+[x] password:string
 
 ## Views
 
@@ -55,6 +55,7 @@ Implement `Admin` model via devise gem.
 
 ## Bonus Elements
 
+[x] Implement `Admin` model via devise gem.
 [ ] Add Google OAuth
 [ ] Bootstrap responsiveness (Work out an alternative to tables at small breakpoints)
 [ ] RSpec and Capybara tests

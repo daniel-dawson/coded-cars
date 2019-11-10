@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ownership Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Belongs to</th>
+      <th>Belongs to</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ownership_histories.each do |ownership_history| %>
+      <tr>
+        <td><%= ownership_history.belongs_to %></td>
+        <td><%= ownership_history.belongs_to %></td>
+        <td><%= link_to 'Show', ownership_history %></td>
+        <td><%= link_to 'Edit', edit_ownership_history_path(ownership_history) %></td>
+        <td><%= link_to 'Destroy', ownership_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ownership History', new_ownership_history_path %>
