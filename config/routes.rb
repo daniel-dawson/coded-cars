@@ -15,19 +15,17 @@ Rails.application.routes.draw do
     post 'admin', to: 'admins/registrations#create'
   end
 
-  # scope :admin do
-  #   devise_for :admins, only: :registrations, path: '', path_names: {
-  #     edit: 'profile/edit'
-  #   }, controllers: { registrations: 'admins/registrations' }
-  # end
-
   devise_for :admins, skip: :registrations, path: '', controllers: {
     sessions: 'admins/sessions', passwords: 'admins/passwords'
   }
 
+  resources :owners do
+    resources :ownership_histories, except: [:index]
+  end
 
-  resources :cars
-  resources :owners
+  resources :cars do
+    resources :ownership_histories, only: [:show, :edit, :update]
+  end
 
-  resources :ownership_histories
+  resources :ownership_histories, only: [:index, :show, :edit, :update]
 end
