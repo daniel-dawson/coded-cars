@@ -37,6 +37,8 @@ group :development, :test do
   gem 'devise'
   # Use RSpec for back-end testing
   gem 'rspec-rails', '~> 3.8'
+  # Creates dummy data for test instances
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry', '~> 0.12.2'
@@ -59,11 +61,11 @@ group :test do
   gem 'webdrivers'
   # Creates test objects
   gem 'factory_bot_rails', '~> 5.0'
-  # Creates dummy data for test instances
-  gem 'faker', '~> 1.9'
   # Provides one-line test code
   gem 'shoulda-matchers', '~> 4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "rubocop-faker", "~> 0.2.0"
