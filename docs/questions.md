@@ -17,7 +17,7 @@ Neither, this is an admin tool for quickly editing these items. This is a back o
 
 > The term "ownership history" implies that there is an exchange of car ownership. Should I be adding this function into the app as well and, if so, are there any requirements for how to do this?
 
-Good question! No need to add any functionality here, this is display only.  You should add some data here manually or through seeds for your demo though.
+Good question! No need to add any functionality here, this is display only. You should add some data here manually or through seeds for your demo though.
 
 > Is this due back at any certain time? Or should I just have it ready when I come in on Wednesday?
 
