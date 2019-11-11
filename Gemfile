@@ -19,12 +19,14 @@ gem 'webpacker', '~> 4.0'
 ## Styling ##
 # Use bootstrap gem for styling
 gem 'bootstrap', '~> 4.3'
+# Adds easier bootstrap form functionality for Rails
+gem 'bootstrap_form', '~> 4.0'
 # Supports bootstrap
 gem 'sprockets-rails', '~> 3.2'
 # Supports bootstrap
 gem 'jquery-rails', '~> 4.3'
 # Use font awesome for icons
-gem 'font-awesome-rails', '~> 4.6'
+gem 'font-awesome-rails', '~> 4.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
