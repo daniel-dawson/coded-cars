@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :cars do
-    resources :ownership_histories, only: [:show, :edit, :update]
+    resources :ownership_histories, except: [:index]
   end
 
   resources :ownership_histories, only: [:index, :show, :edit, :update]
