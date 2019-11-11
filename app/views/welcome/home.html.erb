@@ -1,0 +1,13 @@
+<%# Home Page %>
+<h1>HOME PAGE</h1>
+
+<h3>Session & Registration Links</h3>
+<%= link_to "Admin Login", new_admin_session_path %><br>
+<%= link_to "Admin Logout", destroy_admin_session_path, method: :delete %><br>
+<%= link_to "Create New Admin", new_admin_registration_path %><br>
+<br>
+
+<h2>Index Links</h2>
+<%= link_to "Owners", owners_path %><br>
+<%= link_to "Cars", cars_path %><br>
+<%= link_to "Ownership Histories", ownership_histories_path %>
