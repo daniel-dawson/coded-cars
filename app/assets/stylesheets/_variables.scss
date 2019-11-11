@@ -1,0 +1,169 @@
+// This is where you place Bootstrap's variable overrides
+
+// Color system //
+
+$white:     #FFFFFF !default;
+$gray-100:  #F5F5F5 !default;
+$gray-200:  #DCDCDC !default;
+$gray-300:  #C0C0C0 !default;
+$gray-400:  #A9A9A9 !default;
+$gray-500:  #808080 !default;
+$gray-600:  #686868 !default;
+$gray-700:  #505050 !default;
+$gray-800:  #383838 !default;
+$gray-900:  #202020 !default;
+$black:     #000000 !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$wt-purple:   #DDD2DC !default;
+$lt-purple:   #B883CE !default;
+$purple:      #6F3795 !default;
+$dk-purple:   #341E48 !default;
+
+$wt-orange:   #FFDCB1 !default;
+$lt-orange:   #F5B319 !default;
+$orange:      #FCA403 !default;
+$dk-orange:   #FB7902 !default;
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "wt-purple":    $wt-purple,
+    "lt-purple":    $lt-purple,
+    "purple":       $purple,
+    "dk-purple":    $dk-purple,
+    "wt-orange":    $wt-orange,
+    "lt-orange":    $lt-orange,
+    "orange":       $orange,
+    "dk-orange":    $dk-orange
+  ),
+  $colors
+);
+
+$primary:   $purple !default;
+$secondary: $lt-orange !default;
+$light:     $wt-purple !default;
+$dark:      $dk-purple !default;
+$disabled:  $gray-400 !default;
+$info:      #59CFF6 !default;
+$success:   #11A973 !default;
+$warning:   #FFE839 !default;
+$danger:    #97004D !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "light":      $light,
+    "dark":       $dark,
+    "disabled":   $disabled,
+    "info":       $info,
+    "success":    $success,
+    "warning":    $warning,
+    "danger":     $danger
+  ),
+  $theme-colors
+);
+
+// Options
+
+// Quickly modify global styling by enabling or disabling optional features
+
+$enable-shadows:                              true !default;
+$enable-gradients:                            true !default;
+
+// Body
+
+// Settings for the `<body>` element
+
+$body-bg:                   $white !default;
+$body-color:                $dark !default;
+
+// Links
+
+// Style anchor elements
+
+$link-color:                              $dk-orange !default;
+$link-hover-color:                        $orange !default;
+$link-hover-decoration:                   none !default;
+
+// Typography
+
+// `font`, `line-height`, and `color` for body text, headings, and more
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              1.6rem !default; // Assumes the browser default, typically `16px`
+
+$font-weight-semi-bold:       600 !default;
+
+$font-weight-base:            400 !default;
+$line-height-base:            2.2 !default;
+
+$headings-font-family:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$headings-font-weight:        400 !default;
+$headings-line-height:        1 !default;
+
+// Tables
+
+// Customizes the `.table` component with basic values, each used across all table variations
+
+$table-border-color:          rgba(0,0,0,0.05) !default;
+
+// Buttons + Forms
+
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables
+
+$input-btn-padding-y:         1.5rem !default;
+$input-btn-padding-x:         2.5rem !default;
+$input-btn-font-family:       $headings-font-family !default;
+$input-btn-font-size:         1.4rem !default;
+
+$input-btn-padding-y-sm:      0.75rem !default;
+$input-btn-padding-x-sm:      2rem !default;
+$input-btn-font-size-sm:      1.2rem !default;
+
+$input-btn-padding-y-lg:      2.5rem !default;
+$input-btn-padding-x-lg:      3.5rem !default;
+$input-btn-font-size-lg:      1.6rem !default;
+
+// Buttons
+
+// For each of Bootstrap's buttons, define text, background, and border color
+
+$btn-font-weight:             700 !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           0 !default;
+$btn-border-radius-lg:        0 !default;
+$btn-border-radius-sm:        0 !default;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// Code
+
+$kbd-bg:                            #EDF7F8 !default;
+
+$pre-color:                         #EDF7F8 !default;

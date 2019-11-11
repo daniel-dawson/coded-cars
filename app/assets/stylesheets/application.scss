@@ -9,6 +9,31 @@
 
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "variables";
+@import "megstrap";
 @import "bootstrap";
-@import "rails_bootstrap_forms";
+@import "scaffolds";
+// @import "rails_bootstrap_forms";
 @import "font-awesome";
+
+
+// Reset //
+
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Base-Level //
+
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  font-size: 1.8rem;
+}
