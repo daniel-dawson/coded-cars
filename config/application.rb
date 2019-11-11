@@ -27,5 +27,8 @@ module CodeCars
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Set time zone
+    config.time_zone = 'Eastern Time (US & Canada)'
   end
 end
