@@ -53,6 +53,6 @@ class OwnersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def owner_params
-      params.require(:owner).permit(:name, :email, :telephone)
+      params.require(:owner).permit(:name, :email, :telephone, :admin_id)
     end
 end

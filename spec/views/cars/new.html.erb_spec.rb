@@ -7,7 +7,8 @@ RSpec.describe "cars/new", type: :view do
       :model => "MyString",
       :color => "MyString",
       :mileage => 1,
-      :is_for_sale => false
+      :is_for_sale => false,
+      :admin => nil
     ))
   end
 
@@ -25,6 +26,8 @@ RSpec.describe "cars/new", type: :view do
       assert_select "input[name=?]", "car[mileage]"
 
       assert_select "input[name=?]", "car[is_for_sale]"
+
+      assert_select "input[name=?]", "car[admin_id]"
     end
   end
 end

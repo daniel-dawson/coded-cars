@@ -4,7 +4,7 @@ class CreateOwners < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :telephone
-      t.belongs_to :admin
+      t.belongs_to :admin, null: false, foreign_key: true
 
       t.timestamps
     end

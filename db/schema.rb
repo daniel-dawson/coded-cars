@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_224027) do
+ActiveRecord::Schema.define(version: 2019_11_11_230004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_224027) do
     t.string "color"
     t.integer "mileage"
     t.boolean "is_for_sale"
-    t.bigint "admin_id"
+    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_cars_on_admin_id"
@@ -43,16 +43,16 @@ ActiveRecord::Schema.define(version: 2019_11_10_224027) do
     t.string "name"
     t.string "email"
     t.string "telephone"
-    t.bigint "admin_id"
+    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_owners_on_admin_id"
   end
 
   create_table "ownership_histories", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.bigint "car_id"
-    t.bigint "admin_id"
+    t.bigint "owner_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_ownership_histories_on_admin_id"
@@ -60,4 +60,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_224027) do
     t.index ["owner_id"], name: "index_ownership_histories_on_owner_id"
   end
 
+  add_foreign_key "cars", "admins"
+  add_foreign_key "owners", "admins"
+  add_foreign_key "ownership_histories", "admins"
+  add_foreign_key "ownership_histories", "cars"
+  add_foreign_key "ownership_histories", "owners"
 end

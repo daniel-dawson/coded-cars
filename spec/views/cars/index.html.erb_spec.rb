@@ -8,14 +8,16 @@ RSpec.describe "cars/index", type: :view do
         :model => "Model",
         :color => "Color",
         :mileage => 2,
-        :is_for_sale => false
+        :is_for_sale => false,
+        :admin => nil
       ),
       Car.create!(
         :make => "Make",
         :model => "Model",
         :color => "Color",
         :mileage => 2,
-        :is_for_sale => false
+        :is_for_sale => false,
+        :admin => nil
       )
     ])
   end
@@ -27,5 +29,6 @@ RSpec.describe "cars/index", type: :view do
     assert_select "tr>td", :text => "Color".to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

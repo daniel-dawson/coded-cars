@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe "ownership_histories/new", type: :view do
   before(:each) do
     assign(:ownership_history, OwnershipHistory.new(
-      :belongs_to => "",
-      :belongs_to => ""
+      :owner => nil,
+      :car => nil,
+      :admin => nil
     ))
   end
 
@@ -13,9 +14,11 @@ RSpec.describe "ownership_histories/new", type: :view do
 
     assert_select "form[action=?][method=?]", ownership_histories_path, "post" do
 
-      assert_select "input[name=?]", "ownership_history[belongs_to]"
+      assert_select "input[name=?]", "ownership_history[owner_id]"
 
-      assert_select "input[name=?]", "ownership_history[belongs_to]"
+      assert_select "input[name=?]", "ownership_history[car_id]"
+
+      assert_select "input[name=?]", "ownership_history[admin_id]"
     end
   end
 end

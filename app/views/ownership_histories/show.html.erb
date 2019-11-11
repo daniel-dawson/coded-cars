@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Belongs to:</strong>
-  <%= @ownership_history.belongs_to %>
+  <strong>Owner:</strong>
+  <%= @ownership_history.owner_id %>
 </p>
 
 <p>
-  <strong>Belongs to:</strong>
-  <%= @ownership_history.belongs_to %>
+  <strong>Car:</strong>
+  <%= @ownership_history.car_id %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @ownership_history.admin_id %>
 </p>
 
 <%= link_to 'Edit', edit_ownership_history_path(@ownership_history) %> |
