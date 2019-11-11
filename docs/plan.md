@@ -2,6 +2,8 @@
 
 ## Models
 
+Should the join table relationship be `Owner` and `Car` `has_one` `OwnershipHistory`?
+
 ### `Owner`: Relationships
 
 [x] has_many :ownership_histories
@@ -59,5 +61,5 @@
 [ ] Add Google OAuth
 [ ] Bootstrap responsiveness (Work out an alternative to tables at small breakpoints)
 [ ] RSpec and Capybara tests
-[ ] Faker seeded database
+[x] Faker seeded database
 [ ] Sorting implementation
