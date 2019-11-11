@@ -14,13 +14,13 @@
   </head>
 
   <body class="d-flex flex-column">
-    <div id="page-content"> <%# Add for sticky footer %>
-      <div class="container-fluid"> <%# Start navbar %>
+      <div class="container-fluid header"> <%# Start navbar %>
         <header>
-          <%#= render 'partials/navbar' %>
+          <%= render 'partials/navbar' %>
         </header>
       </div> <%# End navbar %>
 
+    <div id="page-content"> <%# Add for sticky footer %>
       <div class="container-fluid wrapper"> <%# Start body %>      
         <div class="row">
           <%# Flash message for alerts and notices %>
@@ -44,7 +44,7 @@
       <div id="stick-footer"> <%# Add for sticky footer %>
         <footer class="row branding">
           <div class="col">
-          <small>&copy; <%= Time.now.year %> <strong>Coded Cars</strong></small>
+            <small>&copy; <%= Time.zone.now.year %> <strong>Coded Cars</strong></small>
           </div>
         </footer>
       </div> <%# Add for sticky footer %>

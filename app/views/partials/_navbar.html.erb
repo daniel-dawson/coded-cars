@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <%= image_tag("putt-n-pep.png", size: "40x40", alt: "Putt Putt and Pep", class: "d-inline-block align-middle") %>
+  </a>
+  <div class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="<%= root_path %>">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= owners_path %>">Owners</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= cars_path %>">Cars</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= ownership_histories_path %>">Ownership Histories</a>
+    </li>
+  </div>
+</nav>
