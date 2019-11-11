@@ -37,3 +37,20 @@ body {
   height: 100%;
   font-size: 1.8rem;
 }
+
+// Footer //
+
+footer {
+  padding-bottom: 1rem;
+  background-color: $primary;
+  color: $white;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  padding: 0 2rem;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}

@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeCars</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <title><%= @title %></title>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column">
+    <div id="page-content"> <%# Add for sticky footer %>
+      <div class="container-fluid"> <%# Start navbar %>
+        <header>
+          <%#= render 'partials/navbar' %>
+        </header>
+      </div> <%# End navbar %>
+
+      <div class="container-fluid wrapper"> <%# Start body %>      
+        <div class="row">
+          <%# Flash message for alerts and notices %>
+          <% if flash[:alert] %>
+            <div class="col-12 justify-content-center alert alert-dark" role="alert">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+          <% if flash[:notice] %>
+            <div class="col-12 justify-content-center alert alert-info" role="alert">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+        </div>
+
+        <%= yield %>
+      </div> <%# End body %>
+    </div> <%# Add for sticky footer %>
+
+    <div class="container-fluid d-flex flex-column"> <%# Start footer %>
+      <div id="stick-footer"> <%# Add for sticky footer %>
+        <footer class="row branding">
+          <div class="col">
+          <small>&copy; <%= Time.now.year %> <strong>Coded Cars</strong></small>
+          </div>
+        </footer>
+      </div> <%# Add for sticky footer %>
+    </div> <%# End footer %>
+
   </body>
 </html>
