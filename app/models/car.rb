@@ -3,7 +3,7 @@ class Car < ApplicationRecord
   has_many :owners, through: :ownership_histories
 
   def current_owner
-    self.owners.last
+    self.owners.last.name
   end
 
 end
