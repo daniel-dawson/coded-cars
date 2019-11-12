@@ -9,7 +9,6 @@ require 'faker'
 
 # Faker configurations
 Faker::Config.random = Random.new(42)
-Faker::Config.locale = 'en-US'
 
 # Admin object
 admin = Admin.create!(
@@ -17,7 +16,7 @@ admin = Admin.create!(
   password: "password"
 )
 
-puts "Created admin."
+puts "Created 1 admin."
 
 # Owner objects
 def owner_data
@@ -27,11 +26,13 @@ def owner_data
   {name: name, email: email, telephone: phone}
 end
 
-Faker::Number.between(from: 26, to: 39).times do
+Faker::Number.within(range: 26..39).times do
   Owner.create!(owner_data)
 end
 
-puts "Created owners."
+owner_count = Owner.all.count
+
+puts "Created #{owner_count} owners."
 
 # Car objects
 def car_data
@@ -43,23 +44,24 @@ def car_data
   {make: make, model: model, color: color, mileage: mileage, is_for_sale: is_for_sale}
 end
 
-Faker::Number.between(from: Owner.all.count, to: (Owner.all.count + 18)).times do
+Faker::Number.within(range: owner_count..owner_count + 18).times do
   Car.create!(car_data)
 end
 
-puts "Created cars."
+car_count = Car.all.count
+
+puts "Created #{car_count} cars."
 
 # Ownership history objects
 def ownership_history_data
   car = Car.all.sample
   owner = Owner.all.sample
-  {owner: owner, car: car}
+  {owner_id: owner.id, car_id: car.id}
 end
 
-
-Car.all.count.times do
+(car_count * 2).times do
   OwnershipHistory.create!(ownership_history_data)
 end
 
-puts "Created ownership histories."
+puts "Created #{(car_count * 2)} ownership histories."
 puts "Done seeding. Yay!"
