@@ -37,8 +37,9 @@ def car_data
   color = Faker::Vehicle.color
   mileage = Faker::Vehicle.mileage
   is_for_sale = Faker::Boolean.boolean(true_ratio: 0.3)
+  owner = Owner.all.sample
   admin = @admin
-  {admin: admin, make: make, model: model, color: color, mileage: mileage, is_for_sale: is_for_sale}
+  {admin: admin, owner_id: owner.id, make: make, model: model, color: color, mileage: mileage, is_for_sale: is_for_sale}
 end
 
 Owner.all.count.times do
