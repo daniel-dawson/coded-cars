@@ -33,39 +33,27 @@ ActiveRecord::Schema.define(version: 2019_11_12_014924) do
     t.string "color"
     t.integer "mileage"
     t.boolean "is_for_sale"
-    t.bigint "owner_id", null: false
-    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_cars_on_admin_id"
-    t.index ["owner_id"], name: "index_cars_on_owner_id"
   end
 
   create_table "owners", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "telephone"
-    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_owners_on_admin_id"
   end
 
   create_table "ownership_histories", force: :cascade do |t|
     t.bigint "owner_id", null: false
     t.bigint "car_id", null: false
-    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_ownership_histories_on_admin_id"
     t.index ["car_id"], name: "index_ownership_histories_on_car_id"
     t.index ["owner_id"], name: "index_ownership_histories_on_owner_id"
   end
 
-  add_foreign_key "cars", "admins"
-  add_foreign_key "cars", "owners"
-  add_foreign_key "owners", "admins"
-  add_foreign_key "ownership_histories", "admins"
   add_foreign_key "ownership_histories", "cars"
   add_foreign_key "ownership_histories", "owners"
 end

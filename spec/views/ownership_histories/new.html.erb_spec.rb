@@ -4,8 +4,7 @@ RSpec.describe "ownership_histories/new", type: :view do
   before(:each) do
     assign(:ownership_history, OwnershipHistory.new(
       :owner => nil,
-      :car => nil,
-      :admin => nil
+      :car => nil
     ))
   end
 
@@ -17,8 +16,6 @@ RSpec.describe "ownership_histories/new", type: :view do
       assert_select "input[name=?]", "ownership_history[owner_id]"
 
       assert_select "input[name=?]", "ownership_history[car_id]"
-
-      assert_select "input[name=?]", "ownership_history[admin_id]"
     end
   end
 end

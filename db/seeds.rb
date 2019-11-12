@@ -12,23 +12,26 @@ Faker::Config.random = Random.new(42)
 Faker::Config.locale = 'en-US'
 
 # Admin object
-@admin = Admin.create!(
+admin = Admin.create!(
   email: "coded-cars@thrivecommerce.com",
   password: "password"
 )
+
+puts "Created admin."
 
 # Owner objects
 def owner_data
   name = Faker::FunnyName.two_word_name
   email = name.gsub(' ', '.').downcase! + "@gmail.com"
   phone = Faker::PhoneNumber.cell_phone
-  admin = @admin
-  {admin: admin, name: name, email: email, telephone: phone}
+  {name: name, email: email, telephone: phone}
 end
 
-Faker::Number.between(from: 8, to: 14).times do
+Faker::Number.between(from: 26, to: 39).times do
   Owner.create!(owner_data)
 end
+
+puts "Created owners."
 
 # Car objects
 def car_data
@@ -37,20 +40,26 @@ def car_data
   color = Faker::Vehicle.color
   mileage = Faker::Vehicle.mileage
   is_for_sale = Faker::Boolean.boolean(true_ratio: 0.3)
-  owner = Owner.all.sample
-  admin = @admin
-  {admin: admin, owner_id: owner.id, make: make, model: model, color: color, mileage: mileage, is_for_sale: is_for_sale}
+  {make: make, model: model, color: color, mileage: mileage, is_for_sale: is_for_sale}
 end
 
-Owner.all.count.times do
+Faker::Number.between(from: Owner.all.count, to: (Owner.all.count + 18)).times do
   Car.create!(car_data)
 end
 
+puts "Created cars."
+
 # Ownership history objects
-Owner.all.count.times do
-  OwnershipHistory.create!(
-    owner: Owner.all.sample,
-    car: Car.all.sample,
-    admin: @admin
-  )
+def ownership_history_data
+  car = Car.all.sample
+  owner = Owner.all.sample
+  {owner: owner, car: car}
 end
+
+
+Car.all.count.times do
+  OwnershipHistory.create!(ownership_history_data)
+end
+
+puts "Created ownership histories."
+puts "Done seeding. Yay!"

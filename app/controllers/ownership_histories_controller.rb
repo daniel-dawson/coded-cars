@@ -53,6 +53,6 @@ class OwnershipHistoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def ownership_history_params
-      params.require(:ownership_history).permit(:owner_id, :car_id, :admin_id)
+      params.require(:ownership_history).permit(:owner_id, :car_id)
     end
 end

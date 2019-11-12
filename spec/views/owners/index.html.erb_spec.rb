@@ -6,14 +6,12 @@ RSpec.describe "owners/index", type: :view do
       Owner.create!(
         :name => "Name",
         :email => "Email",
-        :telephone => "Telephone",
-        :admin => nil
+        :telephone => "Telephone"
       ),
       Owner.create!(
         :name => "Name",
         :email => "Email",
-        :telephone => "Telephone",
-        :admin => nil
+        :telephone => "Telephone"
       )
     ])
   end
@@ -23,6 +21,5 @@ RSpec.describe "owners/index", type: :view do
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
     assert_select "tr>td", :text => "Telephone".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

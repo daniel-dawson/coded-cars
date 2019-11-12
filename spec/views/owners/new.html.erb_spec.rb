@@ -5,8 +5,7 @@ RSpec.describe "owners/new", type: :view do
     assign(:owner, Owner.new(
       :name => "MyString",
       :email => "MyString",
-      :telephone => "MyString",
-      :admin => nil
+      :telephone => "MyString"
     ))
   end
 
@@ -20,8 +19,6 @@ RSpec.describe "owners/new", type: :view do
       assert_select "input[name=?]", "owner[email]"
 
       assert_select "input[name=?]", "owner[telephone]"
-
-      assert_select "input[name=?]", "owner[admin_id]"
     end
   end
 end

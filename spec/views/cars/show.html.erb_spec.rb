@@ -7,8 +7,7 @@ RSpec.describe "cars/show", type: :view do
       :model => "Model",
       :color => "Color",
       :mileage => 2,
-      :is_for_sale => false,
-      :admin => nil
+      :is_for_sale => false
     ))
   end
 
@@ -19,6 +18,5 @@ RSpec.describe "cars/show", type: :view do
     expect(rendered).to match(/Color/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(/false/)
-    expect(rendered).to match(//)
   end
 end

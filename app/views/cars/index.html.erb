@@ -10,7 +10,6 @@
       <th>Color</th>
       <th>Mileage</th>
       <th>Is for sale</th>
-      <th>Admin</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,6 @@
         <td><%= car.color %></td>
         <td><%= car.mileage %></td>
         <td><%= car.is_for_sale %></td>
-        <td><%= car.admin_id %></td>
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
